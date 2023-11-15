@@ -1,0 +1,33 @@
+% Facts representing the database
+dob(john, '1990-05-15').
+dob(mary, '1985-12-20').
+dob(alice, '2000-02-10').
+dob(bob, '1978-08-25').
+
+% Query to retrieve the date of birth for a given person
+get_dob(Person, DateOfBirth) :-
+    dob(Person, DateOfBirth).
+
+% Query to check if a person is in the database
+is_person_in_database(Person) :-
+    dob(Person, _).
+
+% Query to retrieve the list of people born on a given date
+get_people_on_date(Date, People) :-
+    findall(Person, dob(Person, Date), People).
+
+% Query to retrieve the list of all people in the database
+get_all_people(People) :-
+    findall(Person, dob(Person, _), People).
+----------------------------------------------------------------------------- OUTPUTS----------------------------------------------
+?- get_dob(john, DateOfBirth).
+% Output: DateOfBirth = '1990-05-15'.
+
+?- is_person_in_database(mary).
+% Output: true.
+
+?- get_people_on_date('1985-12-20', People).
+% Output: People = [mary].
+
+?- get_all_people(AllPeople).
+% Output: AllPeople = [john, mary, alice, bob].
