@@ -1,0 +1,22 @@
+% Facts
+planet(mercury, 0.33, 4879).
+planet(venus, 4.87, 12104).
+planet(earth, 5.97, 12756).
+planet(mars, 0.642, 6792).
+planet(jupiter, 1898, 142984).
+planet(saturn, 568, 120536).
+planet(uranus, 86.8, 51118).
+planet(neptune, 102, 49528).
+
+% Rules
+larger(Planet1, Planet2) :-
+    planet(Planet1, Mass1, _),
+    planet(Planet2, Mass2, _),
+    Mass1 > Mass2.
+
+% Example queries:
+% What are the details of Earth?
+% Query: planet(earth, Mass, Diameter).
+%
+% Which planets are larger than Mars?
+% Query: larger(Planet, mars).
