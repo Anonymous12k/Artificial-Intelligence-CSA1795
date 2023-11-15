@@ -1,0 +1,23 @@
+% Facts about birds and whether they can fly.
+can_fly(sparrow).
+can_fly(eagle).
+cannot_fly(penguin).
+
+% Rules to determine if a bird can fly.
+bird_can_fly(Bird) :-
+    can_fly(Bird),
+    write(Bird), write(' can fly.').
+
+bird_can_fly(Bird) :-
+    cannot_fly(Bird),
+    write(Bird), write(' cannot fly.').
+
+% Example queries
+% To check if a sparrow can fly:
+% ?- bird_can_fly(sparrow).
+%
+% To check if a penguin can fly:
+% ?- bird_can_fly(penguin).
+%
+% To list all birds and whether they can fly:
+% ?- bird_can_fly(X), nl, fail.
