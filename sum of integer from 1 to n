@@ -1,0 +1,6 @@
+sum_of_digits(Digit1, Digit2, Sum) :-
+    Sum is Digit1 + Digit2.
+
+----------------------------OUTPUT-----------------------------
+% sum_of_digits(3, 4,Result).
+Result=7.
