@@ -1,0 +1,21 @@
+
+teacher(john, math101).
+teacher(mary, english202).
+teacher(bob, programming303).
+
+student(alice, math101).
+student(bob, english202).
+student(charlie, programming303).
+student(david, math101).
+
+% Rules
+teaches_subject(Teacher, Subject) :- teacher(Teacher, Subject).
+
+enrolled_in(Student, Subject) :- student(Student, Subject).
+
+% Example queries:
+% Does John teach math101?
+% Query: teaches_subject(john, math101).
+%
+% Which students are enrolled in programming303?
+% Query: enrolled_in(Student, programming303).
