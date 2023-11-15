@@ -1,0 +1,29 @@
+% Define the Towers of Hanoi predicate
+hanoi(N, Source, Target, Auxiliary) :-
+    move(N, Source, Target, Auxiliary).
+
+% Base case: moving 0 disks requires no action
+move(0, _, _, _) :- !.
+
+% Recursive case
+move(N, Source, Target, Auxiliary) :-
+    M is N - 1,
+    move(M, Source, Auxiliary, Target),    % Move N-1 disks from source to auxiliary
+    write('Move disk '), write(N), write(' from '), write(Source), write(' to '), write(Target), nl,
+    move(M, Auxiliary, Target, Source).    % Move N-1 disks from auxiliary to target
+
+% Example usage:
+% To solve Towers of Hanoi with 3 disks from pole 'A' to pole 'C' using pole 'B' as auxiliary:
+% Query: hanoi(3, 'A', 'C', 'B').
+
+
+output.
+?- Query: hanoi(3, 'A', 'C', 'B').
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+Query = user.
