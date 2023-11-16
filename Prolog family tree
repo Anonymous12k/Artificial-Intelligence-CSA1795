@@ -1,0 +1,30 @@
+% Facts about individuals
+person(john).
+person(jane).
+person(bob).
+
+% Facts about parent relationships
+parent(john, bob). % John is the parent of Bob
+parent(jane, bob). % Jane is the parent of Bob
+
+% Rules to determine father and mother
+father(Father, Child) :-
+    person(Father),
+    parent(Father, Child),
+    male(Father).
+
+mother(Mother, Child) :-
+    person(Mother),
+    parent(Mother, Child),
+    female(Mother).
+
+% Rules for siblings
+sibling(Sibling1, Sibling2) :-
+    parent(Parent, Sibling1),
+    parent(Parent, Sibling2),
+    Sibling1 \= Sibling2.
+
+% Rules for grandparents
+grandparent(Grandparent, Grandchild) :-
+    parent(Parent, Grandchild),
+    parent(Grandparent, Parent).
